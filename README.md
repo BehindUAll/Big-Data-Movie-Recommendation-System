@@ -1,5 +1,5 @@
 # Big-Data-Movie-Recommendation-System
-Movie recommendation system consisting of the recommendation algorithm written in python which used k-means clustering along with euclidean distance to find out movies similar to a movie given as input. This was done using PostgreSQL server as backend which stored all the movie database information and Django as the front end for displaying the results in a webpage and taking user inputs.
+Movie recommendation system consisting of the recommendation algorithm written in python which used k-means clustering along with euclidean distance to find out movies similar to a movie given as input. This was done using PostgreSQL server as backend which stored all the movie database information and Django as the front end for displaying the results in a webpage and taking user inputs. The data was taken from database called TMDB 5000, consisting of 5000 movies from different genres, years etc. The data was first cleaned using python code, split into several CSVs for different tables and then imported into PostgreSQL server.  
 
 **INSTALLATION INSTRUCTIONS:**
 
