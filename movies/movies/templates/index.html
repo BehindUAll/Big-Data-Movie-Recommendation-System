@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendation System Page</title>
+    <style>
+
+         /* LOGO */
+
+        img{
+          width: 500px;
+          height: auto;
+        }
+
+        .logo {
+          text-align: left;
+          display: block;
+          margin: 0 auto;
+          clear: both;
+          padding-top: 40px;
+          padding-bottom: 20px;
+        }
+
+        /* FORM */
+        .form {
+          text-align: left;
+        }
+
+         /* DROP DOWN */
+        .moviesList {
+          width: 400px;
+          height: 50px;
+          line-height: 500px;
+          font-size: 18px;
+            background-color: crimson;
+
+        }
+
+         /* SUBMIT BUTTON */
+        .submitbutton{
+            background-color: ghostwhite;
+            width: 400px;
+            height: 50px;
+        }
+
+        /* RECOMMENDATION LIST */
+
+        #recommendations {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            background-color: white;
+            width: 100%;
+        }
+
+        #recommendations td, #recommendations th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #recommendations tr:nth-child(even){background-color: #f2f2f2;}
+
+        #recommendations tr:hover {background-color: #ddd;}
+
+        #recommendations th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #626567;
+            color: white;
+        }
+
+    </style>
+</head>
+<body style="background-size: cover" background="https://assets.nflxext.com/ffe/siteui/vlv3/3f62cb51-93b5-4b6d-a1ed-efba9ec55228/e344e2f5-5757-468d-9b9e-a6fdae6bd5f7/US-en-20171127-popsignuptwoweeks-perspective_alpha_website_small.jpg">
+
+    <div class="logo">
+        <a href="#" id="netflix_logo">
+        <img src="http://streaming-blog.com/wp-content/uploads/2014/12/netflix-logo.jpg" alt="Netflix Logo"/>
+        </a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="form">
+        <form id="movie_page" method="POST" action="index.html">
+            {% csrf_token %}
+
+            <select name="MOVIES" autofocus class="moviesList">
+                <option value="movieslist">Movie List</option>
+                {% for movie in moviedata %}
+                    <option value='{{ movie }}'>{{ movie }}</option>
+                {% endfor %}
+            </select>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <input type="submit" name="SUBMIT" value="SUBMIT" class="submitbutton">
+
+        </form>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div>
+        <table id="recommendations">
+            <thead>
+            <tr>
+                <th>Recommendations: {{ userquery }} </th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for key in data %}
+                <tr>
+                    <td>{{ key }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
